@@ -1,0 +1,64 @@
+[
+  {
+    "id": "SL-20261122-083363",
+    "status": "pending",
+    "createdAt": "2026-11-22T03:41:10.083Z",
+    "updatedAt": "2026-11-22T03:41:10.083Z",
+    "customer": {
+      "fullName": "Nguyễn Văn Test",
+      "phone": "0912345678",
+      "address": "12 Nguyễn Huệ, Quận 1, TP.HCM"
+    },
+    "shippingMethod": "standard",
+    "paymentMethod": "cod",
+    "items": [
+      {
+        "productId": "p006",
+        "slug": "chuot-khong-day-swiftclick",
+        "name": "Chuột không dây SwiftClick",
+        "image": {
+          "emoji": "🖱️",
+          "from": "#fae8ff",
+          "to": "#ddd6fe"
+        },
+        "unitPrice": 450000,
+        "quantity": 2,
+        "lineTotal": 900000
+      }
+    ],
+    "subtotal": 900000,
+    "shippingFee": 0,
+    "total": 900000
+  },
+  {
+    "id": "SL-20261122-3846AD",
+    "status": "pending",
+    "createdAt": "2026-11-22T03:42:35.928Z",
+    "updatedAt": "2026-11-22T03:42:35.928Z",
+    "customer": {
+      "fullName": "Nguyễn Văn Test",
+      "phone": "0912345678",
+      "address": "12 Nguyễn Huệ, Quận 1, TP.HCM"
+    },
+    "shippingMethod": "standard",
+    "paymentMethod": "cod",
+    "items": [
+      {
+        "productId": "p006",
+        "slug": "chuot-khong-day-swiftclick",
+        "name": "Chuột không dây SwiftClick",
+        "image": {
+          "emoji": "🖱️",
+          "from": "#fae8ff",
+          "to": "#ddd6fe"
+        },
+        "unitPrice": 450000,
+        "quantity": 2,
+        "lineTotal": 900000
+      }
+    ],
+    "subtotal": 900000,
+    "shippingFee": 0,
+    "total": 900000
+  }
+]

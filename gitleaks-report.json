@@ -1,0 +1,23 @@
+[
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 48,
+  "EndLine": 48,
+  "StartColumn": 52,
+  "EndColumn": 133,
+  "Match": "key-screens.md\",\"REDACTED\"",
+  "Secret": "REDACTED",
+  "File": "_bmad/_config/files-manifest.csv",
+  "SymlinkFile": "",
+  "Commit": "6161f6e1a87251b33ea99610513f9d536c0a0c8b",
+  "Link": "https://github.com/thanhnq-netizen/shoplite/blob/6161f6e1a87251b33ea99610513f9d536c0a0c8b/_bmad/_config/files-manifest.csv#L48",
+  "Entropy": 3.8264554,
+  "Author": "thanhnq-netizen",
+  "Email": "thanhnq@acbs.com.vn",
+  "Date": "2026-11-21T07:23:40Z",
+  "Message": "docs(bmad): prepare ShopLite lab backlog and Sprint 1",
+  "Tags": [],
+  "Fingerprint": "6161f6e1a87251b33ea99610513f9d536c0a0c8b:_bmad/_config/files-manifest.csv:generic-api-key:48"
+ }
+]
