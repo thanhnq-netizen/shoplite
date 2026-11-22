@@ -1,0 +1,74 @@
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created, ready for development
+#   - in-progress: Developer actively working on implementation
+#   - review: Implementation complete, ready for review
+#   - done: Story completed
+
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+
+# Action Item Status:
+#   - open: Committed during a retrospective, not yet addressed
+#   - in-progress: Actively being worked on
+#   - done: Completed
+
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when its first story starts (via build's sprint sync)
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates the next story after the previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+# - Retrospective appends its action items to action_items; the status view surfaces open ones
+generated: 11-21-2026 14:23
+last_updated: 11-21-2026 14:23
+project: ShopLite
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+# Sprint 1 (21/11 - 28/11): kho đơn đọc ghi an toàn, nhân viên mở ca đúng quyền và lệnh sai mốc bị chặn.
+development_status:
+  epic-1: backlog
+  1-1-đọc-đơn-từ-kho-lab: ready-for-dev
+  1-2-lưu-đơn-và-tồn-nguyên-tử: ready-for-dev
+  1-3-đăng-nhập-vận-hành: ready-for-dev
+  1-4-gắn-đơn-mới-với-phiên-khách: backlog
+  1-5-kiểm-tra-lệnh-trước-khi-ghi: ready-for-dev
+  1-6-bảo-vệ-quyền-xem-và-tự-hủy: backlog
+  1-7-tìm-đơn-cần-tiếp-nhận: backlog
+  1-8-đối-chiếu-sản-phẩm-và-tiền: backlog
+  1-9-giữ-đủ-hàng-khi-tiếp-nhận: backlog
+  1-10-hiện-kết-quả-tiếp-nhận: backlog
+  1-11-kiểm-tra-tồn-lúc-đặt-đơn: backlog
+  1-12-hiện-tồn-còn-bán: backlog
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-phân-công-và-đổi-shipper: backlog
+  2-2-xác-nhận-đóng-gói: backlog
+  2-3-xác-nhận-đã-nhận-chuyển-khoản: backlog
+  2-4-bàn-giao-đơn-đủ-điều-kiện: backlog
+  2-5-xem-đơn-được-giao: backlog
+  2-6-ghi-nhận-giao-thành-công: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-hẹn-giao-lại-sau-thất-bại: backlog
+  3-2-hủy-trước-bàn-giao: backlog
+  3-3-hủy-khi-giao-quá-hạn: backlog
+  3-4-nhận-lại-hàng-và-hoàn-tồn: backlog
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-xem-tiến-độ-đơn-của-mình: backlog
+  4-2-kiểm-chứng-ca-giao-thành-công: backlog
+  4-3-kiểm-chứng-ca-giao-thất-bại: backlog
+  epic-4-retrospective: optional

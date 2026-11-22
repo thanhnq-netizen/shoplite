@@ -1,0 +1,149 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ShopLite · Vận hành đơn hàng</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f2f5f1;color:#172b24;font:16px/1.55 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:42px 20px}h1{font-size:clamp(30px,6vw,52px);line-height:1.1;margin:12px 0}small{color:#425d51}nav,.actions,.steps{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0}button,select{font:inherit;border:1px solid #b7c9bd;border-radius:8px;padding:9px 13px;background:white;color:inherit}button{cursor:pointer}button[aria-pressed=true],button.primary{background:#175742;color:white;border-color:#175742}button:focus-visible,select:focus-visible{outline:3px solid #267d61;outline-offset:3px}section{background:white;border:1px solid #dce6df;border-radius:16px;padding:24px;margin-top:18px}.steps span{background:#edf2ef;border-radius:6px;padding:7px 10px}.steps .done{background:#d5ebde}.steps .current{background:#175742;color:white}.warning{color:#8a301b}h2{margin:0 0 8px}p{margin:8px 0}.meta{display:flex;gap:24px;flex-wrap:wrap}footer{margin-top:24px}
+</style>
+<style>
+body{background:#eef3ef;color:#172c27;font-family:system-ui,sans-serif}main{max-width:1120px;padding-top:32px}header{background:#123b31;color:#fff;border-radius:22px;padding:34px 38px;box-shadow:0 12px 25px #123b3120}header small{color:#c4e4d7;text-transform:uppercase;letter-spacing:.12em;font-weight:700}header p{color:#d9ece4;max-width:55ch}nav{background:#dae7df;padding:6px;border-radius:12px;width:fit-content}nav button{border:0;background:transparent}#view{background:transparent;border:0;padding:0;display:grid;gap:16px}article{background:white;border:1px solid #d4e1d8;border-radius:16px;padding:23px;box-shadow:0 3px 8px #173b2c0a}article strong{color:#175742}article .meta{color:#4a6259}h2{font-size:20px}.steps{margin:15px 0}.steps span{font-size:14px}.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}.rules div{background:#eff5f1;border-radius:10px;padding:14px}.rules h3{font-size:16px;margin:0 0 6px}summary{cursor:pointer;font-weight:650}#message:empty{display:none}@media(max-width:520px){header{padding:24px}article{padding:16px}}
+</style><style>
+.staff-product{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:16px;align-items:center;margin:16px 0;padding:14px;border-radius:12px;background:#f4f7f5}.product-image{display:grid;place-items:center;width:64px;height:64px;border-radius:10px;font-size:32px;background:linear-gradient(135deg,#e0f2fe,#c7d2fe)}.staff-product small,.order-money small{display:block}.order-money{text-align:right}.order-money strong{font-size:1.2rem}.staff-flow{padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:8px}.staff-flow li{background:#edf2ef;border-radius:8px;padding:8px;font-size:.85rem}.staff-flow li.done{background:#d5ebde}.staff-flow li.current{background:#175742;color:white}.staff-flow li.cancelled{background:#fce8e2;color:#842c17}.flow-number{font-weight:700;margin-right:5px}@media(max-width:500px){.staff-product{grid-template-columns:56px 1fr}.product-image{width:56px;height:56px}.order-money{grid-column:2;text-align:left}}
+</style><style id="mobile-app">
+:root{color-scheme:light;--ink:#192822;--green:#14664e;--line:#e0e9e4}body{margin:0;background:#e8eeea;color:var(--ink);font-size:15px}main{max-width:480px;min-height:100dvh;margin:auto;padding:0 16px calc(84px + env(safe-area-inset-bottom));background:#f7faf8}header{margin:0 -16px;padding:32px 20px 27px;border-radius:0 0 24px 24px;background:#123f34;box-shadow:none}header small{font-size:11px}h1{margin:8px 0;font-size:32px;letter-spacing:-.045em}header p{font-size:14px;margin-bottom:0}#roles{position:fixed;z-index:3;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,480px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:0;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;box-shadow:0 -4px 18px #173b2c12}#roles button{min-height:48px;padding:4px;border-radius:10px;font-size:12px;font-weight:650}#roles button[aria-pressed=true]{background:#d9efe5;color:#104e3b}#view{margin-top:16px;gap:12px}article{padding:16px;border-radius:16px}article h2{font-size:18px}article h3{font-size:14px;margin:16px 0 8px}.staff-product{grid-template-columns:52px minmax(0,1fr);gap:10px;padding:11px;margin:12px 0}.product-image{width:52px;height:52px;font-size:26px}.staff-product small{font-size:12px}.order-money{grid-column:1/-1;text-align:left;border-top:1px solid var(--line);padding-top:9px;display:grid;grid-template-columns:1fr auto;align-items:center}.order-money strong{font-size:17px}.order-money small:last-child{grid-column:1/-1}.staff-flow{display:grid;grid-template-columns:1fr;gap:0;margin:0 0 12px}.staff-flow li{display:flex;align-items:center;gap:9px;min-height:36px;background:transparent;padding:4px 8px;color:#586c62}.staff-flow li.done{background:transparent;color:#176044}.staff-flow li.current{background:#d9efe5;color:#104e3b;font-weight:700}.flow-number{display:inline-grid;place-items:center;border-radius:50%;width:22px;height:22px;background:#e6eeea;color:#365b4e;margin:0}.staff-flow .current .flow-number{background:var(--green);color:white}.actions{margin:12px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}.actions select,.actions .primary{grid-column:1/-1}.actions button,.actions select,footer button{min-height:46px;font-size:14px}.steps{gap:5px}.steps span{font-size:12px}.rules{grid-template-columns:1fr}.rules div{padding:11px}main>section:not(#view){padding:16px}#message{position:sticky;bottom:calc(66px + env(safe-area-inset-bottom));z-index:2;padding:9px 12px;background:#def2e8;border:1px solid #b6dfce;border-radius:9px;color:#104e3b}footer{margin-top:14px}
+</style><main><header><small>ShopLite · Bản thử với dữ liệu mẫu</small><h1>Vận hành đơn hàng</h1><p>Hai đơn mẫu cùng đặt một món cuối. Chọn vai trò để thử xử lý đơn, phân công giao hàng và theo dõi tiến độ.</p></header>
+<nav aria-label="Vai trò thử nghiệm" id="roles"></nav>
+<section id="view" aria-label="Đơn hàng"></section><p id="message" role="status"></p>
+<section aria-labelledby="acceptance"><h2 id="acceptance">Tiêu chí nghiệm thu MVP</h2><div class="rules">
+<div><h3>Nhân viên · Giữ hàng</h3><p>Hai đơn tranh món cuối. Chỉ một đơn được tiếp nhận và tồn còn bán bằng 0. Hủy trước khi bàn giao trả lại số lượng đúng một lần.</p></div>
+<div><h3>Shipper · Quyền trên đơn</h3><p>Shipper được phân công thấy đơn. Sau khi bàn giao, shipper có thể ghi nhận kết quả. Khi đổi shipper, người cũ mất quyền xem và cập nhật.</p></div>
+<div><h3>Khách · Theo dõi tiến độ</h3><p>Khách xem cả năm mốc xử lý của đơn mình và thấy trạng thái hủy khi phát sinh. Chỉ đơn chờ xác nhận mới có nút tự hủy.</p></div>
+<div><h3>Giao lại · Hàng quay về kho</h3><p>Giao thất bại hẹn lại hôm sau. Bản thử cho nhân viên hủy sau ba ngày tính từ lần giao thất bại đầu tiên. Hàng chỉ được bán lại sau khi cửa hàng xác nhận nhận về.</p></div>
+</div><details><summary>Quyết định còn mở trước khi viết PRD</summary><ul><li>Cách nhận diện từng vai trò và kiểm tra quyền tại API.</li><li>Cách khởi tạo tồn cho dữ liệu cũ và lưu đồng nhất trạng thái đơn với tồn kho bằng tệp.</li><li>Cách tính ngày giao lại, cơ chế hủy và xử lý thanh toán khi hủy.</li></ul></details></section><footer><button id="reset">Đặt lại dữ liệu mẫu</button></footer></main>
+<script>
+const stages = ['Chờ xác nhận','Đang xử lý','Đóng gói hoàn tất','Đã gửi đơn','Đã giao'];
+const roles = ['Nhân viên','Shipper An','Shipper Bình','Khách hàng'];
+const shippers = ['Shipper An','Shipper Bình'];
+const orders = [createOrder('SL-1042'),createOrder('SL-1043')];
+const product = {name:'Tai nghe không dây SoundMax Pro',price:1290000};
+let role = roles[0];
+let stock = 1;
+let day = 0;
+function createOrder(id){
+  return {id, stage:0, shipper:'', held:false, failed:null, next:null, returned:false, wasSent:false};
+}
+function button(label, action, primary=false){
+  const element=document.createElement('button');
+  element.textContent=label;
+  if(primary) element.className='primary';
+  element.onclick=action;
+  return element;
+}
+function update(message=''){
+  document.getElementById('message').textContent=message;
+  render();
+}
+function render(){
+  const nav=document.getElementById('roles');
+  nav.replaceChildren(...roles.map(name=>{
+    const tab=button(name,()=>{role=name;update();});
+    tab.setAttribute('aria-pressed',String(name===role));
+    return tab;
+  }));
+  const visible = role===roles[0] ? orders : role===roles[3] ? orders.slice(0,1) :
+    orders.filter(order=>order.shipper===role);
+  const view=document.getElementById('view');
+  view.replaceChildren();
+  if(!visible.length){view.textContent='Chưa có đơn được phân công.';return;}
+  visible.forEach(order=>renderOrder(view,order));
+}
+function renderOrder(view,order){
+  const card=document.createElement('article');
+  const status=order.stage<0?'Đã hủy':stages[order.stage];
+  card.innerHTML='<h2>Đơn '+order.id+'</h2>';
+  if(role===roles[0]){
+    const currency = amount => amount.toLocaleString('vi-VN')+' ₫';
+    const total = currency(product.price);
+    card.insertAdjacentHTML('beforeend', '<div class="staff-product"><span class="product-image" role="img" aria-label="Hình minh họa tai nghe">🎧</span><div><strong>'+product.name+'</strong><small>Số lượng 1 · Đơn giá '+total+'</small><small>COD · Chưa thanh toán</small></div><div class="order-money"><small>Tổng đơn hàng</small><strong>'+total+'</strong><small>Giao tiêu chuẩn · Miễn phí</small></div></div><h3>Tiến độ đơn hàng</h3><ol class="staff-flow" aria-label="Các mốc xử lý đơn"></ol>');
+    const flow=card.querySelector('.staff-flow');
+    const reached=order.stage<0?order.cancelledFrom:order.stage;
+    stages.forEach((label,index)=>{
+      const step=document.createElement('li');
+      step.innerHTML='<span class="flow-number">'+(index+1)+'</span>'+label;
+      if(index<reached || (index===reached && order.stage<0)) step.className='done';
+      if(index===order.stage){step.className='current';step.setAttribute('aria-current','step');}
+      flow.append(step);
+    });
+    if(order.stage<0){
+      const cancelled=document.createElement('li');
+      cancelled.className='cancelled';
+      cancelled.textContent='Đã hủy';
+      cancelled.setAttribute('aria-current','step');
+      flow.insertBefore(cancelled,flow.children[reached+1]||null);
+    }
+  }else{
+    card.insertAdjacentHTML('beforeend','<p class="meta"><span>'+product.name+' × 1</span><span>COD · Chưa thanh toán</span></p><div class="steps"></div><p><strong>'+status+'</strong></p>');
+  }
+  view.append(card);
+  const steps=card.querySelector('.steps');
+  if(steps) for(const [index,label] of stages.entries()){
+    const step=document.createElement('span');
+    step.textContent=label;
+    if(index===order.stage){step.className='current';step.setAttribute('aria-current','step');}
+    if(index<order.stage) step.className='done';
+    steps.append(step);
+  }
+  if(role!==roles[3]){
+    const detail=document.createElement('p');
+    detail.textContent='Ngày mô phỏng '+day+' · '+(order.shipper||'Chưa phân công shipper')+
+      (order.next!==null && order.stage===3?' · Giao lại ngày '+order.next:'')+
+      (role===roles[0]?' · Tồn còn bán: '+stock:'');
+    card.append(detail);
+  }
+  const actions=document.createElement('div');
+  actions.className='actions';
+  card.append(actions);
+  const add=(label,action,primary)=>actions.append(button(label,action,primary));
+  if(role===roles[0]){
+    if(order.stage===0) add('Bắt đầu xử lý',()=>{
+      if(stock<1){update('Hết hàng khả dụng. Nhân viên có thể hủy và liên hệ khách.');return;}
+      stock--;order.held=true;order.stage=1;update('Đã giữ một món cho '+order.id+'.');
+    },true);
+    if(order.stage>=1 && order.stage<=3){
+      const select=document.createElement('select');
+      select.setAttribute('aria-label','Shipper cho '+order.id);
+      select.add(new Option('Chọn shipper',''));
+      shippers.forEach(name=>select.add(new Option(name,name)));
+      select.value=order.shipper;
+      select.onchange=()=>{if(select.value){order.shipper=select.value;update('Đã phân công '+order.shipper+'.');}};
+      actions.append(select);
+    }
+    if(order.stage===1) add('Đóng gói hoàn tất',()=>{
+      if(!order.shipper){update('Chọn shipper trước khi hoàn tất đóng gói.');return;}
+      order.stage=2;update();
+    },true);
+    if(order.stage===2) add('Đánh dấu đã gửi',()=>{order.stage=3;order.wasSent=true;update();},true);
+    if(order.stage>=0 && order.stage<3) add('Hủy đơn',()=>cancel(order));
+    if(order.stage===3 && order.failed!==null && day-order.failed>=3) add('Hủy sau 3 ngày giao thất bại',()=>cancel(order));
+    if(order.stage<0 && order.wasSent && order.held && !order.returned) add('Xác nhận nhận lại hàng',()=>{
+      stock++;order.held=false;order.returned=true;update('Đã đưa một món về tồn bán được.');
+    });
+  }else if(role===roles[3] && order.stage===0){
+    add('Hủy đơn',()=>cancel(order));
+  }else if(shippers.includes(role) && order.stage===3){
+    add('Giao thành công',()=>{order.stage=4;update('Đã giao '+order.id+'.');},true);
+    if(order.next===null || day>=order.next) add('Giao thất bại',()=>{
+      order.failed ??= day;order.next=day+1;update('Đã ghi nhận giao thất bại. Hẹn lại ngày '+order.next+'.');
+    });
+  }
+  if(role===roles[0] && order.stage===3) add('Mô phỏng sang ngày mai',()=>{day++;update();});
+}
+function cancel(order){
+  if(order.held && !order.wasSent){stock++;order.held=false;}
+  order.cancelledFrom=order.stage;
+  order.stage=-1;
+  update('Đã hủy '+order.id+'.');
+}
+document.getElementById('reset').onclick=()=>{
+  orders.splice(0,orders.length,createOrder('SL-1042'),createOrder('SL-1043'));
+  role=roles[0];stock=1;day=0;update('Đã đặt lại dữ liệu mẫu.');
+};
+render();
+</script></html>
